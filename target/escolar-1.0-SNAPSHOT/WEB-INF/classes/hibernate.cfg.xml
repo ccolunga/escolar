@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">colunga</property>
+    <mapping class="com.mycompany.escolar.vo.Administrativo" />
+    <mapping class="com.mycompany.escolar.vo.Alumno" />
+    <mapping class="com.mycompany.escolar.vo.Asistencia" />
+    <mapping class="com.mycompany.escolar.vo.Calificaciones" />
+    <mapping class="com.mycompany.escolar.vo.Carreras" />
+    <mapping class="com.mycompany.escolar.vo.Cuentas" />
+    <mapping class="com.mycompany.escolar.vo.Docente" />
+    <mapping class="com.mycompany.escolar.vo.Grupos" />
+    <mapping class="com.mycompany.escolar.vo.GruposListas" />
+    <mapping class="com.mycompany.escolar.vo.Kardex" />
+    <mapping class="com.mycompany.escolar.vo.Materias" />
+    <mapping class="com.mycompany.escolar.vo.PlanEstudios" />
+    <mapping class="com.mycompany.escolar.vo.Roles" />
+    <mapping class="com.mycompany.escolar.vo.Usuario" />
+  </session-factory>
+</hibernate-configuration>
