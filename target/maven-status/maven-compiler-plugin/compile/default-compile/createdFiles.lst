@@ -8,6 +8,7 @@ com/mycompany/escolar/vo/Grupos.class
 com/mycompany/escolar/vo/Cuentas.class
 com/mycompany/escolar/vo/Calificaciones.class
 com/mycompany/escolar/dao/DBDAO.class
+com/mycompany/escolar/servlet/MiLogin.class
 com/mycompany/escolar/vo/Asistencia.class
 com/mycompany/escolar/vo/Kardex.class
 com/mycompany/escolar/vo/Docente.class

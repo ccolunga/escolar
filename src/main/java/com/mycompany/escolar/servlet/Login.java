@@ -6,8 +6,10 @@
 package com.mycompany.escolar.servlet;
 
 import com.google.gson.Gson;
+import com.mycompany.escolar.dao.DBDAO;
 import com.mycompany.escolar.vo.Cuentas;
 import java.io.IOException;
+import java.util.List;
 //import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,26 +35,24 @@ public class Login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         
-        String userName = request.getParameter("userName").trim();
-	if(userName == null || "".equals(userName)){
-			userName = "invitado";
-	}
-		
-	String greetings = "Hello " + userName;
-        /*
-        Cuentas c = new Cuentas();
-        c.setId(1);
-        c.setIdRol(1);
-        c.setNick("Juan");
-        c.setIdUsuario(1);
-        c.setPassword("123");
-        */
+        
+        
         response.setContentType("text/plain");
         //response.setContentType("application/json");
         //String json = new Gson().toJson(c);
         
-	response.getWriter().write(greetings);
+	String respuesta = "HOLA NUEVO ";
+        DBDAO dbdao = new DBDAO();
+        
+        List<Cuentas> lista = DBDAO.getCuentas("Select * from Cuentas");
+        if(lista.size()>0) respuesta = respuesta+"Encontrado";
+        else respuesta= respuesta+"No Encontrado";
+          
+        response.getWriter().write(respuesta);
+        
+        
         //response.getWriter().write(json);
     }
 
