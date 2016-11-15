@@ -1,15 +1,10 @@
 package com.mycompany.escolar.vo;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import static javax.persistence.FetchType.LAZY;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,7 +12,7 @@ import javax.persistence.Table;
 
 public class Cuentas {
   private Integer id;
-  private Usuario usuario;
+  private Integer idUsuario;
   private Integer idRol;
   private String nick;
   private String password;
@@ -32,17 +27,15 @@ public class Cuentas {
     this.id = id;
   }
 
-  @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-  @JoinColumn(name = "Usuario")
-  public Usuario getUsuario() {
-    return usuario;
+  @Column(name = "idUsuario")
+  public Integer getIdUsuario() {
+    return idUsuario;
   }
-  public void setUsuario(Integer idUsuario) {
-    this.usuario = usuario;
+  public void setIdUsuario(Integer idUsuario) {
+    this.idUsuario = idUsuario;
   }
 
-  @OneToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "Roles")
+  @Column(name = "idRol")
   public Integer getIdRol() {
     return idRol;
   }

@@ -2,11 +2,9 @@ package com.mycompany.escolar.vo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,8 +12,7 @@ import javax.persistence.Table;
 
 public class Asistencia {
   private int id;
-  private int idAlumnoGruposListas;
-  private String fecha;
+  private int idGruposListas;
 
   @Id
   @GeneratedValue( strategy = GenerationType.AUTO )
@@ -26,20 +23,11 @@ public class Asistencia {
   public void setId(int id) {
     this.id = id;
   }
-  
-  @OneToOne(fetch = FetchType.LAZY)
-  public int getIdAlumnoGruposListas() {
-    return idAlumnoGruposListas;
+  @Column(name = "idGruposListas")
+  public int getIdGruposListas() {
+    return idGruposListas;
   }
-  public void setIdAlumnoGruposListas(int idAlumnoGruposListas) {
-    this.idAlumnoGruposListas = idAlumnoGruposListas;
+  public void setIdGruposListas(int idGruposListas) {
+    this.idGruposListas = idGruposListas;
   }
-  @Column(name="fecha")
-  public String getFecha() {
-    return fecha;
-  }
-  public void setFecha(String fecha) {
-    this.fecha = fecha;
-  }
-  
 }

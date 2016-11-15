@@ -1,12 +1,10 @@
 package com.mycompany.escolar.vo;
 
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,7 +16,7 @@ public class Usuario {
   private String paterno;
   private String materno;
   private String genero;
-  private List <Usuario> usuarios;
+  private Integer idrol;
 
   @Id
   @GeneratedValue( strategy = GenerationType.AUTO )
@@ -38,7 +36,7 @@ public class Usuario {
     this.nombre = nombre;
   }
 
-  
+  @Column(name = "paterno")
   public String getPaterno() {
     return paterno;
   }
@@ -62,11 +60,11 @@ public class Usuario {
     this.genero = genero;
   }
   
-  @OneToOne(mappedBy = "usuario")
-  public List<Usuario> getUsuarios() {
-    return usuarios;
+  @Column(name = "idRol")
+  public Integer getIdrol() {
+    return idrol;
   }
-  public void setUsuarios(List<Usuario> usuarios) {
-    this.usuarios = usuarios;
+  public void setIdrol(Integer idrol) {
+    this.idrol = idrol;
   }
 }

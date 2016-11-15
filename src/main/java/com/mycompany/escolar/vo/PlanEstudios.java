@@ -1,13 +1,10 @@
 package com.mycompany.escolar.vo;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -29,7 +26,7 @@ public class PlanEstudios {
     this.id = id;
   }
 
-  @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+  @Column(name = "idCarrera")
   public Integer getIdCarrera() {
     return idCarrera;
   }

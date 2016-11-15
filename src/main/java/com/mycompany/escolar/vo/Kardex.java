@@ -1,13 +1,10 @@
 package com.mycompany.escolar.vo;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,8 +13,9 @@ import javax.persistence.Table;
 public class Kardex {
   private Integer id;
   private Integer idAlumno;
-  private Integer idAlumnoGrupoListas;
+  private Integer idGrupoListas;
   private Integer calificacion;
+  private Integer idMateria;
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,7 +27,7 @@ public class Kardex {
     this.id = id;
   }
 
-  @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+  @Column(name = "idAlumno")
   public Integer getIdAlumno() {
     return idAlumno;
   }
@@ -37,12 +35,12 @@ public class Kardex {
     this.idAlumno = idAlumno;
   }
 
-  @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-  public Integer getIdAlumnoGrupoListas() {
-    return idAlumnoGrupoListas;
+  @Column(name = "idGrupoLista")
+  public Integer getIdGrupoListas() {
+    return idGrupoListas;
   }
-  public void setIdAlumnoGrupoListas(Integer idAlumnoGrupoListas) {
-    this.idAlumnoGrupoListas = idAlumnoGrupoListas;
+  public void setIdGrupoListas(Integer idGrupoListas) {
+    this.idGrupoListas = idGrupoListas;
   }
 
   @Column(name = "calificacion")
@@ -51,5 +49,13 @@ public class Kardex {
   }
   public void setCalificacion(Integer calificacion) {
     this.calificacion = calificacion;
+  }
+  
+  @Column(name = "idMateria")
+  public Integer getIdMateria() {
+    return idMateria;
+  }
+  public void setIdMateria(Integer idMateria) {
+    this.idMateria = idMateria;
   }
 }

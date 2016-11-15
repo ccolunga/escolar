@@ -5,7 +5,8 @@
  */
 package com.mycompany.escolar.util;
 
-import org.hibernate.cfg.AnnotationConfiguration;
+//import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -21,16 +22,21 @@ import org.hibernate.service.ServiceRegistryBuilder;
 public class HibernateUtil {
 
   private static final SessionFactory sessionFactory;
-  private static ServiceRegistry serviceRegistry;
-  
+  private static ServiceRegister serviceRegistry;
   static {
     try {
       // Create the SessionFactory from standard (hibernate.cfg.xml) 
       // config file.
+      
+      //        sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
+      //sessionFactory = new Configuration().configure("/hibernate.cfg.xml").buildSessionFactory(); 
       Configuration configuration = new Configuration().configure();
-      StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
-      applySettings(configuration.getProperties());
-      sessionFactory = configuration.buildSessionFactory(builder.build());
+
+StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
+  sessionFactory = configuration.buildSessionFactory(builder.build());
+
+     
+
     } catch (Throwable ex) {
       // Log the exception. 
       System.err.println("Initial SessionFactory creation failed." + ex);
@@ -40,5 +46,11 @@ public class HibernateUtil {
   
   public static SessionFactory getSessionFactory() {
     return sessionFactory;
+  }
+
+  private static class ServiceRegister {
+
+    public ServiceRegister() {
+    }
   }
 }

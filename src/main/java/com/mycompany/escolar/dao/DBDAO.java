@@ -30,7 +30,6 @@ public class DBDAO {
     sc.getTransaction().begin();
     sc.save(usr);
     sc.getTransaction().commit();
-    sc.close();
     return usr.getId();
   }
   
@@ -457,7 +456,7 @@ public class DBDAO {
   }
    
    //Grupos listas
-    static public long addAlumnoGruposListas(AlumnoGruposListas gl){
+    static public long addGruposListas(AlumnoGruposListas gl){
     SessionFactory sf = HibernateUtil.getSessionFactory();
     Session sc = sf.getCurrentSession();
     sc.getTransaction().begin();
@@ -466,7 +465,7 @@ public class DBDAO {
     return gl.getId();
   }
   
-   static public long updateAlumnoGruposListas(AlumnoGruposListas gl){
+   static public long updateGruposListas(AlumnoGruposListas gl){
     SessionFactory sf = HibernateUtil.getSessionFactory();
     Session sc = sf.getCurrentSession();
     sc.getTransaction().begin();
@@ -475,7 +474,7 @@ public class DBDAO {
     return gl.getId();
   }
    
-   static public long deleteAlumnoGruposListas(AlumnoGruposListas gl) {
+   static public long deleteGruposListas(AlumnoGruposListas gl) {
     SessionFactory sf = HibernateUtil.getSessionFactory();
     Session sc = sf.getCurrentSession();
     sc.getTransaction().begin();
@@ -484,7 +483,7 @@ public class DBDAO {
     return gl.getId();
   }
    
-   static public AlumnoGruposListas getAlumnoGruposListas( int id) {
+   static public AlumnoGruposListas getGruposListas( int id) {
     SessionFactory sf = HibernateUtil.getSessionFactory();
     Session sc = sf.getCurrentSession();
     sc.getTransaction().begin();
@@ -494,7 +493,7 @@ public class DBDAO {
     return gl;
   }
    
-   static public List <AlumnoGruposListas> getAlumnoGruposListas( String sql ) {
+   static public List <AlumnoGruposListas> getGruposListas( String sql ) {
     SessionFactory sf = HibernateUtil.getSessionFactory();
     Session sc = sf.getCurrentSession();
     sc.getTransaction().begin();
@@ -680,7 +679,8 @@ public class DBDAO {
     SessionFactory sf = HibernateUtil.getSessionFactory();
     Session sc = sf.getCurrentSession();
     sc.getTransaction().begin();
-    Query sq = sc.createSQLQuery("SELECT * FROM Grupos WHERE idGrupos = "+ id).addEntity(Grupos.class);
+    sc.createCriteria(Roles.class).list(); //Trae todos los roles de la base de datos
+    Query sq = sc.createSQLQuery("SELECT * FROM Roles WHERE idRoles = "+ id).addEntity(Grupos.class);
     Roles rol = (Roles) sq.uniqueResult();
     sc.getTransaction().commit();
     return rol;

@@ -1,17 +1,14 @@
 package com.mycompany.escolar.vo;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "GruposListas")
+@Table(name = "AlumnoGruposListas")
 
 public class AlumnoGruposListas {
   private Integer id;
@@ -36,11 +33,12 @@ public class AlumnoGruposListas {
     this.idGrupo = idGrupo;
   }
 
-  @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+  @Column(name = "idAlumno")
   public Integer getIdAlumno() {
     return idAlumno;
   }
   public void setIdAlumno(Integer idAlumno) {
     this.idAlumno = idAlumno;
   }
+
 }

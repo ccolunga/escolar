@@ -15,8 +15,8 @@
   </head>
   <body>
     <h1>Hello World!</h1>
-    <form action="Login" method="GET">
-      <label>Nick:</label><input type="text" name="userName" id ="nick"/><br/><br/>
+    <form action="login" method="GET">
+      <label>Nick:</label><input type="text" name="nick" id ="nick"/><br/><br/>
       <label>Password:</label><input type="password" name="pwd"/><br/><br/>
       
       <input type="submit" />

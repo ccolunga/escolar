@@ -2,11 +2,9 @@ package com.mycompany.escolar.vo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,7 +14,7 @@ public class Calificaciones {
   private Integer id;
   private Integer calificacion;
   private Integer parcial;
-  private Integer idAlumnoGruposListas;
+  private Integer idGruposListas;
 
   @Id
   @GeneratedValue( strategy = GenerationType.AUTO )
@@ -44,11 +42,11 @@ public class Calificaciones {
     this.parcial = parcial;
   }
 
-  @OneToOne(fetch = FetchType.LAZY)
-  public Integer getIdAlumnoGruposListas() {
-    return idAlumnoGruposListas;
+  @Column(name = "idGruposListas")
+  public Integer getIdGruposListas() {
+    return idGruposListas;
   }
-  public void setIdAlumnoGruposListas(Integer idAlumnoGruposListas) {
-    this.idAlumnoGruposListas = idAlumnoGruposListas;
+  public void setIdGruposListas(Integer idGruposListas) {
+    this.idGruposListas = idGruposListas;
   }
 }

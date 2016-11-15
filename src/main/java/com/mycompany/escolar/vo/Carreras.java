@@ -13,6 +13,7 @@ import javax.persistence.Table;
 public class Carreras {
   private Integer id;
   private String nombre;
+  private Integer idPlanEstudio;
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,5 +31,13 @@ public class Carreras {
   }
   public void setNombre(String nombre) {
     this.nombre = nombre;
+  }
+
+  @Column(name = "idPlanestudio")
+  public Integer getIdPlanEstudio() {
+    return idPlanEstudio;
+  }
+  public void setIdPlanEstudio(Integer idPlanEstudio) {
+    this.idPlanEstudio = idPlanEstudio;
   }
 }

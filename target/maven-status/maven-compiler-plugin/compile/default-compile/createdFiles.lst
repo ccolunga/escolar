@@ -2,13 +2,16 @@ com/mycompany/escolar/util/HibernateUtil.class
 com/mycompany/escolar/vo/AlumnoGruposListas.class
 com/mycompany/escolar/vo/Materias.class
 com/mycompany/escolar/vo/Usuario.class
+com/mycompany/escolar/util/HibernateUtil$ServiceRegister.class
 com/mycompany/escolar/vo/PlanEstudios.class
+com/mycompany/escolar/servlet/UsuarioAdd.class
 com/mycompany/escolar/vo/Administrativo.class
 com/mycompany/escolar/vo/Grupos.class
 com/mycompany/escolar/vo/Cuentas.class
 com/mycompany/escolar/vo/Calificaciones.class
 com/mycompany/escolar/dao/DBDAO.class
 com/mycompany/escolar/servlet/MiLogin.class
+com/mycompany/escolar/servlet/MateriasAdd.class
 com/mycompany/escolar/vo/Asistencia.class
 com/mycompany/escolar/vo/Kardex.class
 com/mycompany/escolar/vo/Docente.class
